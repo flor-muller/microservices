@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
+@EnableDiscoveryClient
+@EnableFeignClients
 public class CatalogServiceApplication {
 
     public static void main(String[] args) {
