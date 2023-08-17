@@ -8,5 +8,5 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/paulinaobertib/parcialBackendI.git
+          uri: https://github.com/flor-muller/configs-parcialBEI
 
