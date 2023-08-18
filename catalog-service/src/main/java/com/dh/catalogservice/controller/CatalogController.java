@@ -3,9 +3,11 @@ package com.dh.catalogservice.controller;
 import com.dh.catalogservice.client.IMovieClient;
 import com.dh.catalogservice.model.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -17,6 +19,8 @@ public class CatalogController {
 
     @GetMapping("/{genre}")
     public ResponseEntity<List<Movie>> getMovieByGenre (@PathVariable String genre) {
+        ResponseEntity<List<Movie>> response = IMovieClient.getMovieByGenre(genre);
+        System.out.println("puerto utilizado " + response.getHeaders().get("puerto"));
         return IMovieClient.getMovieByGenre(genre);
     }
 

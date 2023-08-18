@@ -8,6 +8,7 @@ import org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 
+
 public class FeignConfiguration {
     @Bean
     ReactorLoadBalancer<ServiceInstance> randomLoadBalancer(Environment environment,
