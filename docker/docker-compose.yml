@@ -12,5 +12,12 @@ services:
       - '3370:3306'
     expose:
       - '3306'
-  mongodb:
-    
+  zipkin:
+		image: openzipkin/zipkin:2
+		ports:
+		- 9411/9411
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - 5672:5672
+      - 15672:15672
