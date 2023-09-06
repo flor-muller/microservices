@@ -31,9 +31,9 @@ public class SerieController {
         return serieService.getSeriesBygGenre(genre);
     }
 
-    @PostMapping
+    @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public String create(@RequestBody Serie serie) {
+    public String createSerie(@RequestBody Serie serie) {
         serieService.create(serie);
         return serie.getId();
     }

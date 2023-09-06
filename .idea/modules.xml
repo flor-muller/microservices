@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/movie-service/movie-service.iml" filepath="$PROJECT_DIR$/movie-service/movie-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/parcialBackendI.iml" filepath="$PROJECT_DIR$/.idea/parcialBackendI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serie-service/serie-service.iml" filepath="$PROJECT_DIR$/serie-service/serie-service.iml" />
     </modules>
   </component>
 </project>
