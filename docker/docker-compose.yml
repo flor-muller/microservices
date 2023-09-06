@@ -12,4 +12,5 @@ services:
       - '3370:3306'
     expose:
       - '3306'
-   
+  mongodb:
+    
