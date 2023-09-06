@@ -2,6 +2,7 @@ package com.example.serieservice.controller;
 
 import com.example.serieservice.model.Serie;
 import com.example.serieservice.service.SerieService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,9 @@ public class SerieController {
     public SerieController(SerieService serieService) {
         this.serieService = serieService;
     }
+
+    @Autowired
+    private SerieSender sender;
 
     @GetMapping
     public List<Serie> getAll() {

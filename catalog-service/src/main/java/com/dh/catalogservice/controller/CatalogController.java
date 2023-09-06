@@ -27,6 +27,7 @@ public class CatalogController {
     @Autowired
     private DiscoveryClient discoveryClient; // Para acceder a información de instancias de servicio
 
+
     @GetMapping("/movie/{genre}")
     public ResponseEntity<List<Movie>> getMovieByGenre (@PathVariable String genre) {
         ResponseEntity<List<Movie>> response = IMovieClient.getMovieByGenre(genre);
