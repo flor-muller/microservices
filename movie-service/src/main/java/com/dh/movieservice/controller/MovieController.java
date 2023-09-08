@@ -3,6 +3,8 @@ package com.dh.movieservice.controller;
 import com.dh.movieservice.model.Movie;
 import com.dh.movieservice.queue.MovieSender;
 import com.dh.movieservice.service.MovieService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +22,8 @@ public class MovieController {
 
     private final MovieService movieService;
 
-    private final MovieSender movieSender;
+    @Autowired
+    private MovieSender movieSender;
 
     @Value("${server.port}")
     private int serverPort;
