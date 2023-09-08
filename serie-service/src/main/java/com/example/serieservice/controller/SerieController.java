@@ -40,6 +40,7 @@ public class SerieController {
     @ResponseStatus(HttpStatus.CREATED)
     public String createSerie(@RequestBody Serie serie) {
         serieService.create(serie);
+        sender.send(serie);
         return serie.getId();
     }
 }
