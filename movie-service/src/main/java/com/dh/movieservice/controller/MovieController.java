@@ -1,6 +1,7 @@
 package com.dh.movieservice.controller;
 
 import com.dh.movieservice.model.Movie;
+import com.dh.movieservice.queue.MovieSender;
 import com.dh.movieservice.service.MovieService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,8 @@ public class MovieController {
 
     private final MovieService movieService;
 
+    private final MovieSender movieSender;
+
     @Value("${server.port}")
     private int serverPort;
 
@@ -34,6 +37,7 @@ public class MovieController {
 
     @PostMapping("/save")
     ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
+        movieSender.send(movie);
         return ResponseEntity.ok().body(movieService.save(movie));
     }
 }
