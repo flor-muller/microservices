@@ -11,7 +11,8 @@ public class CatalogService {
     @Autowired
     private ISerieRepository repository;
 
-    public String create(Serie serie) {
+    public void saveSerie(Serie serie) {
         repository.save(serie);
     }
+
 }
