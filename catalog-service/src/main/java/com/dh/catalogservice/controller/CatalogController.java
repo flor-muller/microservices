@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("catalog")
@@ -35,6 +36,8 @@ public class CatalogController {
 
     @Autowired
     private Listener listener;
+
+    private static Logger log = Logger.getLogger(CatalogController.class.getName());
 
     @GetMapping("/movie/{genre}")
     public ResponseEntity<List<Movie>> getMovieByGenre (@PathVariable String genre) {
@@ -69,6 +72,7 @@ public class CatalogController {
 
     @GetMapping("/{genre}")
     public Genre getAllByGenre(@PathVariable String genre) {
+        log.info("Mostrando series y peliculas del genero " + genre);
         return catalogService.findAllByGenre(genre);
     }
 }
