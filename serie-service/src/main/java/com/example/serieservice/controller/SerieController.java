@@ -1,6 +1,7 @@
 package com.example.serieservice.controller;
 
 import com.example.serieservice.model.Serie;
+import com.example.serieservice.queue.SerieSender;
 import com.example.serieservice.service.SerieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
