@@ -1,12 +1,13 @@
 package com.dh.catalogservice.queue;
 
+import com.dh.catalogservice.model.Movie;
 import com.dh.catalogservice.model.Serie;
 import com.dh.catalogservice.service.CatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SerieListener {
+public class Listener {
     @Autowired
     private CatalogService service;
 
@@ -17,6 +18,16 @@ public class SerieListener {
         }catch (InterruptedException e) {
             e.printStackTrace();
         }
-        service.save(serie);
+        service.saveSerie(serie);
+    }
+
+    @RabbitListener(queues = {"${queue.movie.name}"})
+    public void receive(@Payload Movie movie){
+        try{
+            Thread.sleep(1000);
+        }catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        service.saveMovie(movie);
     }
 }
