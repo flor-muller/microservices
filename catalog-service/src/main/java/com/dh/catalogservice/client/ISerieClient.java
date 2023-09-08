@@ -15,6 +15,8 @@ import java.util.List;
 @FeignClient(name = "serie-service")
 @LoadBalancerClient(name = "serie-service", configuration = FeignConfiguration.class)
 public interface ISerieClient {
+
+    //Método del parcial, comunicacion sincrónica que trae solo las series por género
     @GetMapping("/api/v1/series/{genre}")
     List<Serie> getSerieByGenre(@PathVariable String genre);
 

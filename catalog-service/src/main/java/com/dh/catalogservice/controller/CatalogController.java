@@ -4,6 +4,7 @@ import com.dh.catalogservice.client.IMovieClient;
 import com.dh.catalogservice.client.ISerieClient;
 import com.dh.catalogservice.model.Movie;
 import com.dh.catalogservice.model.Serie;
+import com.dh.catalogservice.service.CatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -25,6 +26,9 @@ public class CatalogController {
     private ISerieClient ISerieClient;
 
     @Autowired
+    private CatalogService catalogService;
+
+    @Autowired
     private DiscoveryClient discoveryClient; // Para acceder a información de instancias de servicio
 
 
@@ -42,19 +46,20 @@ public class CatalogController {
         return response;
     }
 
-    @PostMapping("/movie/save")
-    public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
-        return ResponseEntity.ok().body(IMovieClient.saveMovie(movie).getBody());
+    @GetMapping("/serie/{genre}")
+    public List<Serie> getSerieByGenre(@PathVariable String genre) {
+        return ISerieClient.getSerieByGenre(genre);
     }
 
-    @GetMapping("/serie/{genre}")
-    public List<Serie> getSerieByGenre(@PathVariable String genre){
-        return ISerieClient.getSerieByGenre(genre);
+    @PostMapping("/movie/save")
+    public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
+        catalogService.saveMovie(movie);
+        return ResponseEntity.ok().body(IMovieClient.saveMovie(movie).getBody());
     }
 
     @PostMapping("/serie/save")
     public String createSerie(@RequestBody Serie serie) {
+        catalogService.saveSerie(serie);
         return ISerieClient.createSerie(serie);
     }
-
 }
