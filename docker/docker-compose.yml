@@ -12,17 +12,6 @@ services:
       - '3370:3306'
     expose:
       - '3306'
-  mongodb:
-    image: mongo:4.4.2
-    mem_limit: 512m
-    ports:
-      - "27017:27017"
-    command: mongod
-    healthcheck:
-      test: "mongo --eval 'db.stats().ok'"
-      interval: 5s
-      timeout: 2s
-      retries: 60
   zipkin:
     image: openzipkin/zipkin:2
     ports:
