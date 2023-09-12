@@ -39,6 +39,8 @@ public class CatalogController {
 
     private static Logger log = Logger.getLogger(CatalogController.class.getName());
 
+    //Método GET desde MS Movie (ya no es requerido en la consigna)
+    /*
     @GetMapping("/movie/{genre}")
     public ResponseEntity<List<Movie>> getMovieByGenre (@PathVariable String genre) {
         ResponseEntity<List<Movie>> response = IMovieClient.getMovieByGenre(genre);
@@ -52,11 +54,15 @@ public class CatalogController {
 
         return response;
     }
+     */
 
-    @GetMapping("/serie/{genre}")
+    //Método GET desde MS Serie (no es requerido en la consigna)
+   /*
+   @GetMapping("/serie/{genre}")
     public List<Serie> getSerieByGenre(@PathVariable String genre) {
         return ISerieClient.getSerieByGenre(genre);
     }
+    */
 
     @PostMapping("/movie/save")
     public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {

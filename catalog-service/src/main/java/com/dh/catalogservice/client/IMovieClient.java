@@ -16,9 +16,11 @@ import java.util.List;
 @LoadBalancerClient(name = "movie-service", configuration = FeignConfiguration.class)
 public interface IMovieClient {
 
-    //Método del parcial, comunicacion sincrónica que trae solo las movies por género
+    //Comunicacion sincrónica con MS Movie que trae solo las movies por género. (No es requerido en consigna)
+    /*
     @GetMapping("/api/v1/movies/{genre}")
     ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre);
+     */
 
     @PostMapping("/api/v1/movies/save")
     ResponseEntity<Movie> saveMovie(@RequestBody Movie movie);
