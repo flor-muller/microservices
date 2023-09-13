@@ -75,8 +75,8 @@ public class CatalogController {
     }
 
     @GetMapping("/{genre}")
-    public Genre getAllByGenre(@PathVariable String genre) {
+    public Genre getAllByGenre(@RequestParam(defaultValue = "false") Boolean throwError, HttpServletResponse response, @PathVariable String genre) {
         log.info("Mostrando series y peliculas del genero " + genre);
-        return catalogService.findAllByGenre(genre);
+        return catalogService.findAllByGenre(genre, throwError);
     }
 }
