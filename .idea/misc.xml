@@ -7,7 +7,6 @@
         <option value="$PROJECT_DIR$/config-server/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
         <option value="$PROJECT_DIR$/movie-service/pom.xml" />
-        <option value="$PROJECT_DIR$/serie-service/pom.xml" />
         <option value="$PROJECT_DIR$/catalog-service/pom.xml" />
       </list>
     </option>

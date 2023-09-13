@@ -9,7 +9,6 @@
         <module name="config-server" />
         <module name="movie-service" />
         <module name="eureka-server" />
-        <module name="serie-service" />
         <module name="gateway" />
         <module name="catalog-service" />
       </profile>
