@@ -17,10 +17,8 @@ import java.util.List;
 public interface ISerieClient {
 
     //Comunicacion sincrónica con MS Serie que trae solo las series por género. (No es requerido en consigna)
-    /*
     @GetMapping("/api/v1/series/{genre}")
     List<Serie> getSerieByGenre(@PathVariable String genre);
-     */
 
     @PostMapping("/api/v1/series/save")
     String createSerie(@RequestBody Serie serie);

@@ -17,10 +17,8 @@ import java.util.List;
 public interface IMovieClient {
 
     //Comunicacion sincrónica con MS Movie que trae solo las movies por género. (No es requerido en consigna)
-    /*
     @GetMapping("/api/v1/movies/{genre}")
     ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre);
-     */
 
     @PostMapping("/api/v1/movies/save")
     ResponseEntity<Movie> saveMovie(@RequestBody Movie movie);
